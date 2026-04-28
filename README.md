@@ -1,2 +1,2 @@
-# 🛒 Commercial Website
-This project is a fully functional commercial website designed to provide users with a seamless online shopping and browsing experience. The platform allows customers to explore products, view detailed descriptions, and make secure purchases. It is built with a focus on user-friendly design, performance, and scalability.
+RasoiRoots
+Rasoi Roots 🌿 is a heritage-driven food platform that brings back forgotten Indian dishes and the stories behind them. From ancient recipes to regional delicacies, users can explore, learn, and experience the rich culinary traditions of India like never before.
