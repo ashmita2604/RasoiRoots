@@ -138,37 +138,6 @@ header .navbar {
     color: var(--primary-color);
 }
 
-.nav-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.navbar .cart-link {
-    color: var(--white-color);
-    position: relative;
-    font-size: var(--font-size-m);
-}
-
-.navbar .sign-in-link {
-    color: var(--white-color);
-    font-size: var(--font-size-m);
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    padding: 6px 15px;
-    border: 2px solid var(--white-color);
-    border-radius: var(--border-radius-s);
-    font-weight: var(--font-weight-medium);
-    font-size: var(--font-size-m);
-    transition: 0.3s ease;
-}
-
-.navbar .sign-in-link:hover {
-    background: var(--secondary-color);
-    color: var(--text-color);
-    border: 2px solid var(--secondary-color);
-}
 
 /* Hero section styling*/
 .hero-section {
