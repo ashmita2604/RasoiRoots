@@ -34,7 +34,7 @@
                     <a href="#about" class="nav-link">About</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#menu" class="nav-link">Menu</a>
+                    <a href="#explore" class="nav-link">Explore</a>
                 </li>
                 <li class="nav-item">
                     <a href="#testimonials" class="nav-link">Testimonials</a>
@@ -94,55 +94,26 @@
         </section>
 
         <!-- Menu section -->
-        <section class="menu-section" id="menu">
-            <h2 class="section-title">Our Menu</h2>
+        <section class="explore-section" id="explore">
+            <h2 class="section-title">Explore  Dishes  Across <span style="color:#BC4749 ; font-size: 3rem;">India</span></h2>
             <div class="section-content">
-                <ul class="menu-list">
-                    <li class="menu-item">
-                        <img src="images/hot-beverages.png" alt="Hot Beverages" class="menu-image">
-                        <div class="menu-details">
-                            <h3 class="name">Hot Beverages</h3>
-                            <p class="text">Wide range of steaming hot coffee to make you fresh and light</p>
-                        </div>
-                    </li>
 
-                    <li class="menu-item">
-                        <img src="images/cold-beverages.png" alt="Cold Beverages" class="menu-image">
-                        <div class="menu-details">
-                            <h3 class="name">Cold Beverages</h3>
-                            <p class="text">Creamy and frothy cold coffee to make you cool</p>
-                        </div>
-                    </li>
-                    <li class="menu-item">
-                        <img src="images/refreshment.png" alt="Refreshment" class="menu-image">
-                        <div class="menu-details">
-                            <h3 class="name">Refreshment</h3>
-                            <p class="text">Fruit and icy refreshing drink to make you feel refreshed</p>
-                        </div>
-                    </li>
-                    <li class="menu-item">
-                        <img src="images/special-combo.png" alt="Special Combos" class="menu-image">
-                        <div class="menu-details">
-                            <h3 class="name">Special Combos</h3>
-                            <p class="text">Your favourite eating and drinking combinations</p>
-                        </div>
-                    </li>
-                    <li class="menu-item">
-                        <img src="images/desserts.png" alt="Desserts" class="menu-image">
-                        <div class="menu-details">
-                            <h3 class="name">Desserts</h3>
-                            <p class="text">Delicious desserts to satisfy your sweet tooth</p>
-                        </div>
-                    </li>
-                    <li class="menu-item">
-                        <img src="images/burger-frenchfries.png" alt="Burger & French Fries" class="menu-image">
-                        <div class="menu-details">
-                            <h3 class="name">Burger & French Fries</h3>
-                            <p class="text">Quick bites to satisfy your small size hunger</p>
-                        </div>
-                    </li>
+                <div class="search">
+                <i class="search-icon fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" class="search-input" placeholder="Search by state...">
+                </div>
 
-                </ul>
+                <div class="region-filter">
+                    <button class="region" data-region="all">All Regions</button>
+                    <button class="region" data-region="North">North</button>
+                    <button class="region" data-region="South">South</button>
+                    <button class="region" data-region="East">East</button>
+                    <button class="region" data-region="West">West</button>
+                </div>
+
+                <div id="dishContainer" class="dish-container">
+                    <!-- Dishes will be dynamically inserted here -->
+                </div>
             </div>
         </section>
 
@@ -286,7 +257,8 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
     <!-- Linking custom JS -->
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
+    <script type="module" src="dishcard.js"></script>
 </body>
 
 </html>
