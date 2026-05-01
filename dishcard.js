@@ -6,7 +6,7 @@ const regionButtons = document.querySelectorAll(".region");
 
 let currentRegion = "all";
 
-// 🍛 Display dishes
+// Display dishes
 function displayDishes(data) {
   container.innerHTML = "";
 
@@ -19,20 +19,21 @@ function displayDishes(data) {
     container.innerHTML += `
       <div class="dish-card">
         <img src="${dish.img}" alt="${dish.name}">
-        <h4>${dish.name}</h4>
-        <p>${dish.state}</p>
+        <h4 class="dish-name">${dish.name}</h4>
+        <h7 class="dish-state">${dish.state}</h7>
+        <p class="dish-description">${dish.description}</p>
       </div>
     `;
   });
 }
 
-// 🎲 Show 8 random dishes initially
+// Show 8 random dishes initially
 function showRandomDishes() {
   const shuffled = [...dishes].sort(() => 0.5 - Math.random());
-  displayDishes(shuffled.slice(0, 8));
+  displayDishes(shuffled.slice(0, 10));
 }
 
-// 🔍 Filter logic
+// Filter logic
 function filterDishes() {
   const search = searchInput.value.toLowerCase().trim();
 
@@ -49,7 +50,7 @@ function filterDishes() {
   displayDishes(filtered);
 }
 
-// 🔘 Region button click
+// Region button click
 regionButtons.forEach(button => {
   button.addEventListener("click", () => {
     currentRegion = button.dataset.region;
@@ -62,8 +63,22 @@ regionButtons.forEach(button => {
   });
 });
 
-// 🔍 Search typing
+// Search typing
 searchInput.addEventListener("input", filterDishes);
 
-// 🚀 Initial load
+// While user starts typing, automatically resets to all regions
+searchInput.addEventListener("input", () => {
+
+  if (searchInput.value.trim() !== "") {
+    currentRegion = "all";
+    regionButtons.forEach(btn => btn.classList.remove("active"));
+
+    const allBtn = document.querySelector('[data-region="all"]');
+    if (allBtn) allBtn.classList.add("active");
+  }
+
+  filterDishes();
+});
+
+// Initial load
 showRandomDishes();
