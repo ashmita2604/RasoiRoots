@@ -35,7 +35,7 @@ function displayDishes(data) {
     `;
   });
 
-  // 🔥 BUTTON LOGIC (UPDATED)
+  // Read More Button logic
   if (data.length > 10) {
     readMoreBtn.style.display = "block";
     readMoreBtn.textContent = showAll ? "Read Less ⬆️" : "Read More 🍽️";
@@ -65,13 +65,13 @@ function filterDishes() {
     );
   }
 
-  showAll = false; // RESET
+  showAll = false;
   displayDishes(filtered);
 }
 
-// 🔁 TOGGLE Read More / Read Less
+//TOGGLE between Read More and Read Less
 readMoreBtn.addEventListener("click", () => {
-  showAll = !showAll; // toggle
+  showAll = !showAll;
   displayDishes(currentDishes);
 
   // optional smooth scroll when collapsing
