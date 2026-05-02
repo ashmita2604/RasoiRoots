@@ -1,7 +1,7 @@
 export const dishes = [
 
   // NORTH INDIA
-  { name: "Paneer Bhurji", state: "Punjab", region: "North", img: "images/states/punjab/paneer-bhurji.jfif", desc: "A spicy scrambled paneer dish cooked with onions, tomatoes, and aromatic spices." },
+  { name: "Paneer Bhurji", state: "Punjab", region: "North", img: "images/states/punjab/Paneer-Bhurji.jfif", desc: "A spicy scrambled paneer dish cooked with onions, tomatoes, and aromatic spices." },
   { name: "Moong Dal Parantha", state: "Punjab", region: "North", img: "images/states/punjab/moong-dal-parantha.jfif", desc: "Stuffed flatbread filled with seasoned moong dal, crispy outside and soft inside." },
   { name: "Makki ki roti naal sarson ka saag", state: "Punjab", region: "North", img: "images/states/punjab/sarson-ka-sag.jpg", desc: "Traditional Punjabi combo of maize roti served with mustard greens curry." },
 
