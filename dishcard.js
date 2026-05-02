@@ -3,34 +3,52 @@ import { dishes } from "./data.js";
 const container = document.getElementById("dishContainer");
 const searchInput = document.getElementById("searchInput");
 const regionButtons = document.querySelectorAll(".region");
+const dropdown = document.getElementById("regionFilter");
+const readMoreBtn = document.getElementById("readMoreBtn");
 
 let currentRegion = "all";
+let currentDishes = [];
+let showAll = false;
 
 // Display dishes
 function displayDishes(data) {
   container.innerHTML = "";
 
+  currentDishes = data;
+
   if (data.length === 0) {
     container.innerHTML = "<p>No dishes found 😢</p>";
+    readMoreBtn.style.display = "none";
     return;
   }
 
-  data.forEach(dish => {
+  const dishesToShow = showAll ? data : data.slice(0, 10);
+
+  dishesToShow.forEach(dish => {
     container.innerHTML += `
       <div class="dish-card">
         <img src="${dish.img}" alt="${dish.name}">
         <h4 class="dish-name">${dish.name}</h4>
-        <h7 class="dish-state">${dish.state}</h7>
-        <p class="dish-description">${dish.description}</p>
+        <p class="dish-state">${dish.state}</p>
+        <p class="dish-description">${dish.desc}</p>
       </div>
     `;
   });
+
+  // 🔥 BUTTON LOGIC (UPDATED)
+  if (data.length > 10) {
+    readMoreBtn.style.display = "block";
+    readMoreBtn.textContent = showAll ? "Read Less ⬆️" : "Read More 🍽️";
+  } else {
+    readMoreBtn.style.display = "none";
+  }
 }
 
-// Show 8 random dishes initially
+// Show random dishes initially
 function showRandomDishes() {
   const shuffled = [...dishes].sort(() => 0.5 - Math.random());
-  displayDishes(shuffled.slice(0, 10));
+  showAll = false;
+  displayDishes(shuffled);
 }
 
 // Filter logic
@@ -47,15 +65,26 @@ function filterDishes() {
     );
   }
 
+  showAll = false; // RESET
   displayDishes(filtered);
 }
+
+// 🔁 TOGGLE Read More / Read Less
+readMoreBtn.addEventListener("click", () => {
+  showAll = !showAll; // toggle
+  displayDishes(currentDishes);
+
+  // optional smooth scroll when collapsing
+  if (!showAll) {
+    container.scrollIntoView({ behavior: "smooth" });
+  }
+});
 
 // Region button click
 regionButtons.forEach(button => {
   button.addEventListener("click", () => {
     currentRegion = button.dataset.region;
 
-    // Optional active style
     regionButtons.forEach(btn => btn.classList.remove("active"));
     button.classList.add("active");
 
@@ -63,10 +92,13 @@ regionButtons.forEach(button => {
   });
 });
 
-// Search typing
-searchInput.addEventListener("input", filterDishes);
+// Dropdown change
+dropdown.addEventListener("change", () => {
+  currentRegion = dropdown.value;
+  filterDishes();
+});
 
-// While user starts typing, automatically resets to all regions
+// Search typing
 searchInput.addEventListener("input", () => {
 
   if (searchInput.value.trim() !== "") {

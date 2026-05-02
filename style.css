@@ -272,7 +272,8 @@ header .navbar {
     width: max-content;
     display: flex;
     align-items: center;
-    padding: 10px;
+    /* justify-content: flex-start; */
+    padding: 10px 50px;
     gap: 10px;
     margin: 0 auto 30px;
     background: var(--white-color);
@@ -290,7 +291,7 @@ header .navbar {
     background: transparent;
     color: var(--text-color);
     font-size: var(--font-size-s);
-    margin-left: 10px;
+    margin-left: 5px;
 }
 
 .explore-section .section-content .search-icon {
@@ -368,7 +369,30 @@ header .navbar {
 }
 
 .explore-section .section-content .dish-card .dish-description {
+    margin: 5px 0 5px;
     color: var(--text-color);
+    font-size: var(--font-size-xs);
+}
+
+.explore-section .section-content .read-more-btn {
+    display: none;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background: var(--pop-color);
+    color: var(--white-color);
+    padding: 10px 26px;
+    border: 2px solid var(--pop-color);
+    border-radius: var(--border-radius-m);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-m);
+    transition: 0.3s ease;
+}
+
+.explore-section .section-content .read-more-btn:hover {
+    background: var(--white-color);
+    color: var(--pop-color);
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -526,7 +550,7 @@ header .navbar {
 /* Footer section styling */
 .footer-section {
     padding: 20px 0;
-    background: var(--primary-color);
+    background: var(--text-color);
 }
 
 .footer-section .section-content {
@@ -537,7 +561,7 @@ header .navbar {
 
 .footer-section :where(.copyright-text,
     .social-link, .policy-link) {
-    color: var(--text-color);
+    color: var(--white-color);
     transition: 0.2s ease;
 }
 
@@ -670,16 +694,28 @@ header .navbar {
         aspect-ratio: 1;
     }
 
-    .menu-section .menu-list {
-        gap: 30px;
+    .explore-section .section-content .search {
+        padding: 10px;
     }
 
-    .menu-section .menu-list .menu-item {
-        width: calc(100% / 2 - 30px);
+    .explore-section .section-content .region-filter {
+        display: none;
     }
 
-    .menu-section .menu-list .menu-item .menu-image {
-        max-width: 200px;
+    .explore-section .section-content .region-filter-dropdown {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+
+    .explore-section .section-content .region-filter-dropdown #regionFilter {
+        border: 2px solid var(--secondary-color);
+        background: var(--white-color);
+        color: var(--text-color);
+        font-size: var(--font-size-s);
+        font-weight: var(--font-weight-normal);
+        border-radius: var(--border-radius-s);
+        padding: 3px 15px;
     }
 
     .gallery-section .gallery-list {
